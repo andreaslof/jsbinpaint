@@ -9,6 +9,3 @@ String.prototype.group = function(){
 		console.log(this);
 	}
 }
-
-var binhash = 'andreas';
-console.log(binhash.md5());
