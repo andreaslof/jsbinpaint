@@ -4,8 +4,13 @@ String.prototype.group = function(){
 	var resStr;
 	var str = this;
 	var len = str.length;
-	for(i = len/2; i >= 0; i--){
-		res[i] = {x:str.charAt(i),y:str.charAt(i+1)};
+	for(i = len/4; i >= 0; i--){
+		res[i] = {
+			x1:str.charAt(i),
+			y1:str.charAt(i+1),
+			x2:str.charAt(i+2),
+			y2:str.charAt(i+3)
+		};
 	}
 	return res;
 }
