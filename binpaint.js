@@ -4,11 +4,11 @@
 
 String.prototype.group = function(){
 	var i, j;
-	var arr = [];
-	for(i=this.length; i>0; i++){
-		console.log(this);
-	}
+	var res = [];
+	return res;
 }
 
-var binhash = md5('andreas').toBin();
-console.log(binhash.group());
+var test = 'andreas'.md5().toBin();
+
+
+console.log(test.group());
