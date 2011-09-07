@@ -5,4 +5,8 @@
 var test = 'andreas';
 var string = test.md5().toBin().group();
 
-console.log(string);
+for(var i = string.length-1; i > 0; i--){
+	console.log("x:"+string[i].x,"y:"+string[i].y);
+}
+
+//console.log(string);
