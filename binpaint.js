@@ -10,5 +10,5 @@ String.prototype.group = function(){
 	}
 }
 
-var binhash = md5('andreas').toBin();
-console.log(binhash.group());
+var binhash = 'andreas';
+console.log(binhash.md5());
