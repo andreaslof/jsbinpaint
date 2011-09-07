@@ -2,22 +2,6 @@
 // An experiment which will paint with hashed-base2-encoded strings
 // Author(s): Andreas Löf Hermansson & Simon Westerlund
 
-var base2enc = function(str){
-	var i,j,d;
-	var arr = [];
-	var len = str.length;
-
-	for(i=len; i>0; i--){
-		d = str.charCodeAt(i-1);
-		for(j = 0; j < 8; j++){
-			arr[arr.length] = d%2;
-			d = Math.floor(d/2);
-		}
-	}
-
-	return arr.reverse().join("");
-}
-
 var md5 = function(string) {
 	function RotateLeft(lValue, iShiftBits) {
 		return (lValue<<iShiftBits) | (lValue>>>(32-iShiftBits));
@@ -217,6 +201,20 @@ var md5 = function(string) {
 
 	return temp.toLowerCase();
 }
-var hash = md5('andreas');
 
-console.log(base2enc(hash));
+String.prototype.toBin=function(){
+	var st,i,j,d;
+	var arr = [];
+	var len = this.length;
+	for (i = len; i>0; i--){
+	 	d = this.charCodeAt(i-1);
+		for (j = 0; j < 8; j++) {
+	 		arr[arr.length] = d%2;
+			d = Math.floor(d/2);
+		}
+	}
+	return arr.reverse().join("");
+}
+
+var hash = md5('andreas');
+console.log(hash.toBin());
