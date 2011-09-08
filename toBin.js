@@ -1,8 +1,8 @@
-String.prototype.toBin = function(){
+String.prototype.toBin = function() {
 	var st,i,j,d;
 	var arr = [];
 	var len = this.length;
-	for (i = len; i>0; i--){
+	for (i = len; i>0; i--) {
 	 	d = this.charCodeAt(i-1);
 		for (j = 0; j < 8; j++) {
 	 		arr[arr.length] = d%2;

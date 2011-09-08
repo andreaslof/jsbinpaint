@@ -54,12 +54,12 @@ input[type=submit] {
 }
 </style>
 </head>
-<body>
+<body onLoad="ready()">
 	<div>
 		<canvas id="canvas"></canvas>
 		<p id="hash">Resulting MD5-hash: <span id="result"></span></p>
-		<input type="text" />
-		<input type="submit" />
+		<input id="insert" type="text" />
+		<input id="submit" type="submit" />
 	</div>
 </body>
 </html>
