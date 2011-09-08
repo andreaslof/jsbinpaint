@@ -3,8 +3,8 @@ String.prototype.group = function(){
 	var res = [];
 	var resStr;
 	var str = this;
-	var len = str.length;
-	for(i = len/4; i >= 0; i--){
+	var len = str.length/4;
+	for(i = len; i >= 0; i--){
 		res[i] = {
 			x1:str.charAt(i),
 			y1:str.charAt(i+1),
