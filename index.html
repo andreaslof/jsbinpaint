@@ -6,6 +6,7 @@
 <title></title>
 <script type="text/javascript" src="md5.js"></script>
 <script type="text/javascript" src="toBin.js"></script>
+<script type="text/javascript" src="paint.js"></script>
 <script type="text/javascript" src="group.js"></script>
 <script type="text/javascript" src="binpaint.js"></script>
 <style type="text/css">
@@ -24,7 +25,8 @@ p span {
 	padding: 4px;
 	border-radius: 4px;
 }
-#canvas {
+
+canvas {
 	display: block;
 	width: 960px;
 	height: 400px;
@@ -54,12 +56,12 @@ input[type=submit] {
 }
 </style>
 </head>
-<body onLoad="ready()">
+<body onload="tryToPaint()">
 	<div>
 		<canvas id="canvas"></canvas>
 		<p id="hash">Resulting MD5-hash: <span id="result"></span></p>
-		<input id="insert" type="text" />
-		<input id="submit" type="submit" />
+		<input type="text" id="string" />
+		<input type="submit" id="paint" />
 	</div>
 </body>
 </html>
