@@ -8,7 +8,7 @@ function paint(array){
 	canvas.setAttribute('height', body.offsetHeight);
 	context.lineWidth = 1;
 	var lastPosition = [canvas.offsetWidth / 2, canvas.offsetHeight / 2];
-	lastPosition = [200, 200];
+	//lastPosition = [400, 400];
 	var offset = [0, 0];
 	var newX = 0;
 	var newY = 0;
@@ -53,7 +53,6 @@ function paint(array){
 		lastPosition[1] = coordinates[1];
 	}
 
-
 	if(animate){
 		var i = 0;
 		var painting = setInterval(function(){
@@ -76,8 +75,4 @@ function paint(array){
 			context.stroke();
 		}
 	}
-
-
-
-
 }
