@@ -56,12 +56,12 @@ input[type=submit] {
 }
 </style>
 </head>
-<body onload="paint();">
+<body onload="tryToPaint()">
 	<div>
 		<canvas id="canvas"></canvas>
 		<p id="hash">Resulting MD5-hash: <span id="result"></span></p>
-		<input type="text" />
-		<input type="submit" />
+		<input type="text" id="string" />
+		<input type="submit" onclick="paintWith()" />
 	</div>
 </body>
 </html>

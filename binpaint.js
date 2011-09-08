@@ -2,17 +2,27 @@
 // An experiment which will paint with hashed-base2-encoded strings
 // Author(s): Andreas Löf Hermansson & Simon Westerlund
 
-String.prototype.group = function(){
-	var i, j;
-	var arr = [];
-	for(i=this.length; i>0; i++){
-		console.log(this);
-	}
-}
-=======
+
+
 var test = 'andreas';
 var string = test.md5().toBin().group();
 
-for(var i = string.length-1; i > 0; i--){
-	console.log("x1:"+string[i].x1,"y1:"+string[i].y1,"x2:"+string[i].x2,"y2:"+string[i].y2);
+function paintWith()
+{
+	var string = document.getElementById('string').value.md5().toBin().group();
+	string = '1110'.group()
+	paint(string);
 }
+
+function tryToPaint()
+{
+	//paint(string);
+}
+
+//var string = test.md5().toBin().group();
+
+
+
+// for(var i = string.length-1; i > 0; i--){
+// 	console.log("x1:"+string[i].x1,"y1:"+string[i].y1,"x2:"+string[i].x2,"y2:"+string[i].y2);
+// }
