@@ -32,7 +32,8 @@ function paintFromArray(array){
 	var extend			=	40,
 		margin			=	50,
 		lineWidth		=	1,
-		logTime			=	true;
+		lineCap			=	'round';
+		logTime			=	false;
 
 	var canvas			=	document.getElementById('canvas'),
 		context			=	canvas.getContext('2d'),
@@ -45,8 +46,8 @@ function paintFromArray(array){
 		minX			=	0,
 		minY			=	0;
 
-	canvas.setAttribute('width', document.body.offsetWidth);	// We should try to find some better way of doing this, fucks up
-	canvas.setAttribute('height', document.body.offsetHeight);	// the canvas proportions when adding stuff to the DOM
+	canvas.setAttribute('width', document.body.offsetWidth);	// We should try to find some better way of doing this, it fucks up
+	canvas.setAttribute('height', document.body.offsetHeight);	// the canvas proportions when adding stuff to the DOM dynamically
 
 	for (var i in array){
 		coordinates[0] = lastPosition[0];
@@ -64,11 +65,12 @@ function paintFromArray(array){
 		if(array[i]['y2'] == 1)
 			coordinates[1] += extend;
 
-		if(lastPosition[0] == coordinates[0] && lastPosition[1] == coordinates[1]){
+		if(lastPosition[0] == coordinates[0] && lastPosition[1] == coordinates[1])
 			coordinates[0] += extend;
-			coordinates[1] += extend; // Added this so we get a more unique pattern instead of just changing one axis
-		}
-		// Inverts the path if it reaches the border of the canvas
+		else							// !! If you want it to draw that little "thing", comment from here to just before paths[i]
+			coordinates[1] += extend;	// Added this so we get a more unique pattern instead of just changing one axis
+
+		// Inverts the path if it reaches the border of the canvas etc etc - simplified "border collision" detection
 		if(coordinates[0] > canvas.width || coordinates[0] < 0)
 			coordinates[0] -= extend;
 		if(coordinates[1] > canvas.height || coordinates[1] < 0)
@@ -117,15 +119,20 @@ function paintFromArray(array){
 	// move all content to the center, to all the party
 	context.translate(minX + (ofX / scale), minY + (ofY / scale));
 
+	// set context-drawing styles
+	context.lineWidth	= lineWidth;
+	context.lineCap		= lineCap;
+	context. fillStyle	= 'rgba(15,189,102,0.35)';
+
 	// and...paint!
 	for (var i in paths){
 		// Draws a circle at each joint
-		context.fillStyle = "rgba(15,189,102,0.35)";
 		context.beginPath();
-		context.arc(paths[i][0][0], paths[i][0][1], Math.ceil(Math.random()*20+Math.floor(2)+i), 0, Math.PI*2, true); // RANDOMLY SIZED JOINT-CIRCLES, FUCK YEAH
+		context.arc(paths[i][0][0], paths[i][0][1], Math.ceil(Math.random()*6+Math.floor(2)+i), 0, Math.PI*2, true);
+		context.arc(paths[i][1][0], paths[i][1][1], Math.ceil(Math.random()*6+Math.floor(2)+i), 0, Math.PI*2, true); // RANDOMLY SIZED JOINT-CIRCLES, FUCK YEAH
 		context.closePath();
 		context.fill();
-
+		// Draw the lines
 		context.beginPath();
 		// context.lineWidth = Math.ceil(Math.random()*4+Math.floor(1)+i); // RANDOM WIDTH OF THE LINES, FUCK YEAH
 		// context.moveTo((paths[i][0][0] + minX + (ofX / scale)), paths[i][0][1] + minY + (ofY / scale));
