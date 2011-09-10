@@ -126,8 +126,9 @@ function paintFromArray(array){
 		context.fill();
 
 		context.beginPath();
-		context.moveTo((paths[i][0][0] + minX + (ofX / scale)), paths[i][0][1] + minY + (ofY / scale));
-		context.lineTo((paths[i][1][0] + minX + (ofX / scale)), paths[i][1][1] + minY + (ofY / scale));
+		// context.lineWidth = Math.ceil(Math.random()*4+Math.floor(1)+i); // RANDOM WIDTH OF THE LINES, FUCK YEAH
+		// context.moveTo((paths[i][0][0] + minX + (ofX / scale)), paths[i][0][1] + minY + (ofY / scale));
+		// context.lineTo((paths[i][1][0] + minX + (ofX / scale)), paths[i][1][1] + minY + (ofY / scale));
 		context.moveTo(paths[i][0][0], paths[i][0][1]);
 		context.lineTo(paths[i][1][0], paths[i][1][1]);
 		context.stroke();
