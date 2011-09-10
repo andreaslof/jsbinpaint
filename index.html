@@ -23,19 +23,17 @@ h1 {
 	width: 50%;
 	margin: 10px auto;
 }
-p, input[type=text], ol {
+p, input[type=text] {
+	width: 100%;
+	margin: 10px auto;
 	font-family: "Helvetica", "Arial", sans-serif;
 	font-size: 18px;
 	font-weight: bold;
 }
 p span {
 	background-color: #ada;
-	padding: 0 2px;
-	border-radius: 2px;
-}
-#hash {
-	width: 100%;
-	margin: 10px auto;
+	padding: 0 4px;
+	border-radius: 4px;
 }
 canvas {
 	display: block;
@@ -49,7 +47,7 @@ canvas {
 }
 input {
 	display: block;
-	margin: 0 auto;
+	margin: 0 auto !important;
 }
 input[type=text] {
 	outline: none;
@@ -73,7 +71,8 @@ input[type=submit] {
 		<h1>jsbinpaint</h1>
 		<canvas id="canvas"></canvas>
 		<div>
-			<p id="hash">The hash: <span id="result"></span></p>
+			<p>Last input: <span id="history"></span></p>
+			<p>MD5-hash: <span id="result"></span></p>
 			<input type="text" id="string" />
 			<input type="submit" onclick="prepareString()" />
 		</div>

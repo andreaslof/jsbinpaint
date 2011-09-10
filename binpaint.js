@@ -23,6 +23,7 @@ function prepareString() {
 		// history[] holds all the previous inputs
 		// Did this if we would like to, well, go back in history and see what we DID THAR
 		history[i] = input.value;
+		document.getElementById('history').textContent = history[i];
 		i++;
 	}
 }
